@@ -37,7 +37,15 @@ class TransactionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Transaction::create([
+            'title' => $request->title,
+            'amount' => $request->amount,
+            'time' => $request->time,
+            'type' => $request->type,
+            'product_id' => $request->product_id,
+        ]);
+
+        return redirect('/transaction')->with('success', 'ok');
     }
 
     /**
@@ -57,9 +65,9 @@ class TransactionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Transaction $transaction, Request $request)
     {
-        //
+        return view('transaction.edit', compact(['transaction']));
     }
 
     /**
@@ -69,9 +77,18 @@ class TransactionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Transaction $transaction)
     {
-        //
+        Transaction::where('id', $transaction->id)->update([
+            'title' => $request->title,
+            'amount' => $request->amount,
+            'time' => $request->time,
+            'type' => $request->type,
+            'product_id' => $request->product_id,
+
+        ]);
+
+        return redirect('/transaction')->with('success', 'oke');
     }
 
     /**
@@ -80,8 +97,10 @@ class TransactionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Transaction $transaction)
     {
-        //
+        $transaction->delete();
+        
+        return redirect()->route('transaction.index')->with('success', 'Data berhasil dihapus.');
     }
 }

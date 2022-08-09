@@ -26,8 +26,8 @@ Route::group(['middleware' => 'auth'], function() {
 
 
     Route::prefix('')->group(function() {
+        Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
         Route::resource('/transaction', TransactionController::class);
     });
 });
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

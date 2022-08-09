@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="{{ asset('dist/assets/extensions/simple-datatables/style.css') }}">
     <link rel="stylesheet" href="{{ asset('dist/assets/css/pages/simple-datatables.css') }}">
     <script src="https://kit.fontawesome.com/e439ecdff4.js" crossorigin="anonymous"></script>
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 
 <body>
