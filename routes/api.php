@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\TransactionApiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -22,4 +22,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 // Route::get('/transaction', [TransactionController::class, 'index']);
 
-Route::resource('/transaction', TransactionController::class);
+Route::resource('/transaction', TransactionApiController::class);

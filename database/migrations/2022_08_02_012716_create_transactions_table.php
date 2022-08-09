@@ -19,6 +19,7 @@ return new class extends Migration
             $table->double('amount');
             $table->timestamp('time')->default(now());
             $table->enum('type', ['expense', 'revenue']);
+            $table->bigInteger('product_id');
             $table->timestamps();
         });
     }
