@@ -23,3 +23,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 // Route::get('/transaction', [TransactionController::class, 'index']);
 
 Route::resource('/transaction', TransactionApiController::class);
+
+Route::middleware(['auth'])->group(function() {
+    
+});

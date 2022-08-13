@@ -14,7 +14,7 @@
 
     <div class="row">
         <div class="col">
-            <form action="{{ url('/transaction') }}" method="POST">
+            <form action="{{ url('/transaction') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('POST')
                 <form>
@@ -42,6 +42,20 @@
                                     id="first-name-icon">
                                 <div class="form-control-icon">
                                     <i class="bi bi-currency-dollar"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label>Image</label>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="form-group has-icon-left">
+                            <div class="position-relative">
+                                <input type="file" class="form-control" placeholder="" name="image"
+                                    id="first-name-icon">
+                                <div class="form-control-icon">
+                                   
                                 </div>
                             </div>
                         </div>

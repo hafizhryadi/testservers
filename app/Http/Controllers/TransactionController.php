@@ -35,15 +35,15 @@ class TransactionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Transaction $transaction)
     {
-        Transaction::create([
-            'title' => $request->title,
-            'amount' => $request->amount,
-            'time' => $request->time,
-            'type' => $request->type,
-            'product_id' => $request->product_id,
-        ]);
+        $data = Transaction::create($request->all());
+
+        if ($request->hasFile('image')) {
+            $request->file('image')->move('images/', $request->file('image')->getClientOriginalName());
+            $data->image = $request->file('image')->getClientOriginalName();
+            $data->save();
+        }
 
         return redirect('/transaction')->with('success', 'ok');
     }

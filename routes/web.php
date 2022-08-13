@@ -21,12 +21,16 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::group(['middleware' => 'auth'], function() {
+// Route::group(['middleware' => 'auth'], function() {
    
 
-    Route::prefix('')->group(function() {
-        Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-        Route::resource('/transaction', TransactionController::class);
-    });
+//     Route::prefix('')->group(function() {
+        
+//     });
+// });
+
+Route::middleware(['auth', 'role:admin'])->group(function() {
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::resource('/transaction', TransactionController::class);
 });
 

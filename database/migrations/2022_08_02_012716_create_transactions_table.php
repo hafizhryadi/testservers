@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('title');
             $table->double('amount');
             $table->timestamp('time')->default(now());
+            $table->string('image');
             $table->enum('type', ['expense', 'revenue']);
             $table->bigInteger('product_id');
             $table->timestamps();

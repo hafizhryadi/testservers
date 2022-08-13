@@ -34,6 +34,7 @@
                                 <th>Title</th>
                                 <th>Amount</th>
                                 <th>Time</th>
+                                <th>Image</th>
                                 <th>Type</th>
                                 <th>Product</th>
                                 <th>Action</th>
@@ -46,6 +47,7 @@
                                     <td>{{ $t->title }}</td>
                                     <td>{{ $t->amount }}</td>
                                     <td>{{ $t->time }}</td>
+                                    <td><img src="{{ asset('images/'. $t->image) }}" alt="test" style="width: 100px;"></td>
                                     <td>{{ $t->type }}</td>
                                     <td>{{ $t->product->name }}</td>
                                     <td>
