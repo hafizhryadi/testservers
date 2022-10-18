@@ -24,6 +24,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::resource('/transaction', TransactionApiController::class);
 
-Route::middleware(['auth'])->group(function() {
+Route::middleware(['auth', 'role:admin'])->group(function() {
     
 });
